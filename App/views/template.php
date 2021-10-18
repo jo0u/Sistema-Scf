@@ -8,9 +8,12 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
+    <!-- bibliotecas em java scripts e afins-->
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
 
 
 
@@ -23,7 +26,7 @@
     <img src="<?php echo URL_BASE;?>images/mvc.png";>
     -->
 
-    <nav class = "blue">
+    <nav class = "brown darken-1">
     <div class="nav-wrapper container">
       <a href="#" class="brand-logo">SCF</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -36,12 +39,32 @@
                 
                 
                <?php
-                  if($_SESSION['level'] == 2 ):
+                  if($_SESSION['level'] >= 2 ):
                ?>
 <!---------------------------------------------------------------------------------------------- Bloco de Funcionario------------------------------------------------------------------------->
-                <li> <a href="/users/cadastrar" hidden='true'>Cadastrar usuário</a></li> 
-                <li><a class="dropdown-trigger" href="" data-target="dropdown1">Funcionario<i class="material-icons right">arrow_drop_down</i></a></li>
+               
+                <li><a class="dropdown-trigger" href="" data-target="dropdown1">Cadastro<i class="material-icons right">arrow_drop_down</i></a></li>
                 <ul id="dropdown1" class="dropdown-content">
+  <div class = "nav-wrapper container">
+  <li><a href="#">Processos</a></li>
+  <li class="divider"></li>
+  <li><a href="/requerente/index">Requerente</a></li>
+  <li class="divider"></li>
+  <li><a href="#">Outros</a></li>
+  <li class="divider"></li>
+  <li><a href="#">Domínio Municipal</a></li>
+  <li class="divider"></li>
+  <li><a href="#">Confortante </a></li>
+  <li class="divider"></li>
+  <li><a href="#">Processos SEI</a></li>
+  <li class="divider"></li>
+  
+</ul>
+
+
+
+                <li><a class="dropdown-trigger  href="data-target="dropdown">Funcionario<i class="material-icons right">arrow_drop_down</i></a></li>
+                <ul id="dropdown" class="dropdown-content">
   <div class = "nav-wrapper container">
   <li><a href="/user/cadastrar">Cadastrar</a></li>
   <li class="divider"></li>
@@ -90,7 +113,7 @@
       </ul>
     </div>
   </nav>
-  <?php echo var_dump($_SESSION['level']); ?>
+  <?//php echo var_dump($_SESSION['level']); ?>
 
 
 

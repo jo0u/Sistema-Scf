@@ -21,6 +21,6 @@
     Senha: <input type="password" name="senha"><br><br>
    
     <br><br>
-    <button name="cadastro"> Cadastrar</button>
+    <button name="cadastro" class="waves-effect waves-light btn modal-trigger green"> Cadastrar</button>
 </form>
 </div>

@@ -1,4 +1,5 @@
-<nav>
+
+<nav class ='brown lighten-4'>
     <div class="nav-wrapper">
       <form method="POST" action="/user/buscar">
         <div class="input-field">
@@ -28,7 +29,9 @@
 
 
 <div class = "row container"> 
+<div class= "card-panel">
 <table  border = '1px' ><tr> <th> Nome </th> <th> Usuario </th><th> Perfil </th> <th>Ações</th> </tr><br><br>
+
 <?php
 
    foreach ($data['registros'] as $user):
@@ -49,7 +52,9 @@
     <th> <a class ='waves-effect waves-light btn modal-trigger black' href="/user/editarSenha/<?php echo $user['id'];?>">Editar Senha</a> 
     </th>
      
-
+   </div>
 
 <?php endforeach; ?>
+
+
    </div>

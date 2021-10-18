@@ -1,4 +1,4 @@
-<nav>
+<nav class = "brown lighten-4">
     <div class="nav-wrapper">
       <form method="POST" action="/home/buscar">
         <div class="input-field">

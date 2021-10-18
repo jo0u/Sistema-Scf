@@ -1,5 +1,9 @@
 <?php
-    use App\Core\Controller;
+#Filter_input , servem para filtar os input inves de botar direto no codigo eles passam por uma filtragem, ex ele sem filtragem
+#$_POST['login']
+
+
+use App\Core\Controller;
     use App\Auth;
 
 
@@ -13,9 +17,9 @@
             
 
             if(isset($_POST['cadastro'])):
-                $nome = ucwords($_POST['nome']);
+                $nome = addslashes(ucwords(filter_input(INPUT_POST,'nome', FILTER_SANITIZE_SPECIAL_CHARS )));
                 $senha =password_hash($_POST['senha'], PASSWORD_DEFAULT);
-                $usuario = strtolower($_POST['usuario']);
+                $usuario =addslashes(strtolower($_POST['usuario']));
 
                 $users = $this->model('Users');
                 $users->nome = $nome;
@@ -41,11 +45,16 @@
             $mensagem = array();
             $users = $this->model('Users');
             if(isset($_POST['atualizar'])):
-                $nome = ucwords($_POST['nome']);
-                //$senha =password_hash($_POST['senha'], PASSWORD_DEFAULT);
-                $usuario = strtolower($_POST['usuario']);
-                $level = $_POST['level'];
+                $nome =addslashes(ucwords(filter_input(INPUT_POST,'nome', FILTER_SANITIZE_SPECIAL_CHARS )));
+             //  $nome = $_POST['nome'];
+                $usuario = addslashes (strtolower($_POST['usuario']));
+                $level = addslashes(filter_input(INPUT_POST, 'level', FILTER_SANITIZE_NUMBER_INT));
                 
+                
+
+
+
+
                 $users->nome = $nome;
                 $users->usuario = $usuario;
                 $users->level = $level;

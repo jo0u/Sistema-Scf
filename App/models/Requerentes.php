@@ -114,7 +114,19 @@
             
         }
 
+        public function delete($id){
+            $sql = "DELETE FROM requerente WHERE id = ?";
+            $stmt = Model::getConn()->prepare($sql);
 
+            $stmt->bindValue(1,$id);
+
+            if($stmt->execute()):
+                return "M.toast({html: 'Excluido com sucesso!', classes: 'rounded, green'});";
+            else:
+                return "M.toast({html: 'Falha ao Excluir', classes: 'rounded ,red'});";
+            endif;
+            
+        }
 
 
     }

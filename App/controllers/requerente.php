@@ -72,6 +72,7 @@
 
 
         public function editar($id){
+            Auth::checkLogin();
             $mensagem = array();
             $requerentes = $this->model('Requerentes');
             if(isset($_POST['atualizar'])):
@@ -119,6 +120,18 @@
 
             $dados = $requerentes->findId($id);
             $this->view('requerente/editar', $dados = ['mensagem' => $mensagem, 'registros' => $dados]);
+        }
+
+
+        public function excluir($id = ''){
+            Auth::checkLogin();
+            $mensagem = array();
+            $requerentes = $this->model('Requerentes');
+            $mensagem[] = $requerentes->delete($id);
+
+            $dados = $requerentes->getAll();
+
+            $this->view('requerente/index', $dados = ['registros' => $dados , 'mensagem' => $mensagem]);
         }
     }
 

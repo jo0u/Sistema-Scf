@@ -46,7 +46,7 @@
 ?>
  <th> <a class ='waves-effect waves-light btn modal-trigger orange' href="/requerente/editar/<?php echo $requerente['id'];?>">Editar</a>
      
-     <a class ='waves-effect waves-light btn modal-trigger red' href="#">Excluir</a>
+     <a class ='waves-effect waves-light btn modal-trigger red' href="/requerente/excluir/<?php echo $requerente['id'];?>">Excluir</a>
     </th>
 
 <?php

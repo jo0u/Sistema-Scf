@@ -2,20 +2,31 @@
 
 <h2>Cadastrar Requerente</h2>
 
-<form action="">
+<?php
+    if(!empty($data['mensagem'])):
+        
+        foreach($data['mensagem'] as $m):
+           echo "<script>";
+            echo $m;
+        endforeach;
+        echo "</script>";
+    endif;
+?>
+
+<form action="/requerente/cadastrar" method="POST">
 
 
 
 
 <div class="input-field col s6">
-    <input id="cpf" type="text" name="cpf" class="validate">
+    <input id="cpf" type="text" name="cpf" class="validate" required>
           <label for="last_name">CPF</label>
 
 </div>
      
 <div class="input-field col s6">
 
-<select name="pessoa">
+<select name="pessoa" required>
       <option value="" disabled selected>Pessoa</option>
       <option value="F">Fisica</option>
       <option value="J">Juridico</option>
@@ -27,7 +38,7 @@
 
 
 <div class="input-field col s6">
-    <input id="requerente" type="text" name="requerente" class="validate">
+    <input id="requerente" type="text" name="requerente" class="validate" required>
           <label for="last_name">Requerente</label>      
 </div>
 
@@ -36,7 +47,7 @@
 
 <div class="input-field col s6">
 
-<select name="Sexo">
+<select name="sexo" required>
       <option value="" disabled selected>Sexo</option>
       <option value="M">Masculino</option>
       <option value="F">Feminino</option>
@@ -45,35 +56,35 @@
 
 
 <div class="input-field col s6">
-    <input id="profissao" type="text" name="profissao" class="validate">
+    <input id="profissao" type="text" name="profissao" class="validate" required>
           <label for="last_name">Profissão</label>
 
 </div>
 
 <div class="input-field col s6">
-    <input id="data" type="date" name="data" class="validate">
-          <label>Data</label>      
+    <input id="data" type="date" name="data" class="validate" required>
+          <label>Data de Nascimento</label>      
 </div>
 
 
 <div class="input-field col s6">
-    <input id="" type="text" name="" class="validate">
+    <input id="" type="text" name="nacionalidade" class="validate" required>
           <label for="last_name">Nacionalidade</label>      
 </div>
 
 <div class="input-field col s6">
-    <input id="" type="text" name="" class="validate">
+    <input id="" type="text" name="nmSocial" class="validate">
           <label for="last_name">Nome Social</label>      
 </div>
 
 <div class="input-field col s6">
-    <input id="" type="text" name="" class="validate">
+    <input id="" type="text" name="rg" class="validate" required> 
           <label for="last_name">RG</label>      
 </div>
 
 
 <div class="input-field col s6">
-<select>
+<select name = "estado" required>
       <option value="" disabled selected>Selecione o Estado</option>
       <option value="AC">Acre</option>
     <option value="AL">Alagoas</option>
@@ -107,45 +118,45 @@
 
 
     <div class="input-field col s6">
-    <input id="telefone" type="text" name="telefone" class="validate">
+    <input id="telefone" type="text" name="telefone" class="validate" required>
           <label for="last_name">Telefone</label>   
 
     </div>
 
     <div class="input-field col s6">
-<select>
+<select name="estCivil" required>
       <option value="" disabled selected>Est.Civil</option>
-      <option value="solteiro">Solteiro(a)</option>
-    <option value="casado">Casado(a)</option>
-    <option value="divorciado">Divorciado(a)</option>
-    <option value="uniaoEstavel">União Estavél </option>
-    <option value="viuvo">Viúvo(a)</option>
+      <option value="Solteiro">Solteiro(a)</option>
+    <option value="Casado">Casado(a)</option>
+    <option value="Divorciado">Divorciado(a)</option>
+    <option value="Uniao Estavel">União Estavél </option>
+    <option value="Viuvo">Viúvo(a)</option>
 </select>
 </div>
     <div class="input-field col s6">
-    <input id="nomePai" type="text" name="nomePai" class="validate">
+    <input id="nomePai" type="text" name="nomePai" class="validate" required>
           <label for="last_name">Nome do Pai</label>      
 </div>
 
 
 <div class="input-field col s6">
-    <input id="nomeMae" type="text" name="nomeMae" class="validate">
+    <input id="nomeMae" type="text" name="nomeMae" class="validate" required>
           <label for="last_name">Nome da Mãe</label>      
 </div>
 
 
 <div class="input-field col s6">
-    <input id="" type="text" name="" class="validate">
+    <input id="" type="text" name="endereco" class="validate" required>
           <label for="last_name">Endereço</label>      
 </div>
 
 
 <div class="input-field col s6">
-    <input id="" type="email" name="" class="validate">
+    <input id="" type="email" name="email" class="validate" required>
           <label for="last_name">E-mail</label>      
 </div>
 
-<button name="cadastro" class="waves-effect waves-light btn modal-trigger green" style="float:right"> Cadastrar</button>
+<button name="cadastrar" class="waves-effect waves-light btn modal-trigger green" style="float:right"> Cadastrar</button>
 
 
 </form>

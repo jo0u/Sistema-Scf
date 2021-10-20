@@ -41,6 +41,12 @@ use App\Core\Controller;
             $this->view('user/listar', $dados = ['registros' => $dados]);
         }
 
+
+
+
+
+
+        
         public function editar($id){
             $mensagem = array();
             $users = $this->model('Users');

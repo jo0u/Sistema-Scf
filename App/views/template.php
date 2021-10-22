@@ -42,8 +42,26 @@
                   if($_SESSION['level'] >= 2 ):
                ?>
 <!---------------------------------------------------------------------------------------------- Bloco de Funcionario------------------------------------------------------------------------->
+<li><a class="dropdown-trigger  href="data-target="dropdown">Funcionario<i class="material-icons right">arrow_drop_down</i></a></li>
+                <ul id="dropdown" class="dropdown-content">
+  <div class = "nav-wrapper container">
+  <li><a href="/user/cadastrar">Cadastrar</a></li>
+  <li class="divider"></li>
+  <li><a href="/user/listar">Listar</a></li>
+  <li class="divider"></li>
+  
+  
+
+  
+</ul>
+
+<?php
+                   endif;
+               ?>
+
+  
                
-                <li><a class="dropdown-trigger" href="" data-target="dropdown1">Cadastro<i class="material-icons right">arrow_drop_down</i></a></li>
+<li><a class="dropdown-trigger" href="" data-target="dropdown1">Cadastro<i class="material-icons right">arrow_drop_down</i></a></li>
                 <ul id="dropdown1" class="dropdown-content">
   <div class = "nav-wrapper container">
   <li><a href="#">Processos</a></li>
@@ -58,31 +76,14 @@
   <li class="divider"></li>
   <li><a href="#">Processos SEI</a></li>
   <li class="divider"></li>
-  
-</ul>
-
-
-
-                <li><a class="dropdown-trigger  href="data-target="dropdown">Funcionario<i class="material-icons right">arrow_drop_down</i></a></li>
-                <ul id="dropdown" class="dropdown-content">
-  <div class = "nav-wrapper container">
-  <li><a href="/user/cadastrar">Cadastrar</a></li>
-  <li class="divider"></li>
-  <li><a href="/user/listar">Listar</a></li>
-  <li class="divider"></li>
-  
-  
-</ul>
-
+  </ul>
 <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
       
 
 
 
 
-               <?php
-                   endif;
-               ?>
+            
              
               
                   

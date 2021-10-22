@@ -6,7 +6,7 @@
 
         public $cpf;
         public $pessoa;
-        public $requerente;
+        public $nome;
         public $sexo;
         public $profissao;
         public $dt_nascimento;
@@ -54,11 +54,11 @@
 
         public function save(){
 
-            $sql = "INSERT INTO requerente(cpf, pessoa, requerente, sexo, profissao, dt_nascimento, nacionalidade,nome_social,rg,estado,telefone,est_civil,nm_pai,nm_mae,endereco,email) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            $sql = "INSERT INTO requerente(cpf, pessoa, nome, sexo, profissao, dt_nascimento, nacionalidade,nome_social,rg,estado,telefone,est_civil,nm_pai,nm_mae,endereco,email) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             $stmt = Model::getConn()->prepare($sql);
             $stmt->bindValue(1,$this->cpf);
             $stmt->bindValue(2,$this->pessoa);
-            $stmt->bindValue(3,$this->requerente);
+            $stmt->bindValue(3,$this->nome);
             $stmt->bindValue(4,$this->sexo);
             $stmt->bindValue(5,$this->profissao);
             $stmt->bindValue(6,$this->dt_nascimento);
@@ -85,11 +85,11 @@
 
         public function update($id){
 
-            $sql = "UPDATE requerente SET cpf = ? , pessoa = ? , requerente = ? , sexo = ? , profissao = ? , dt_nascimento = ? , nacionalidade = ? , nome_social = ? , rg = ? , estado = ?, telefone = ? , est_civil = ? ,nm_pai = ? ,nm_mae = ? ,endereco = ? , email = ? WHERE id = ?";
+            $sql = "UPDATE requerente SET cpf = ? , pessoa = ? , nome = ? , sexo = ? , profissao = ? , dt_nascimento = ? , nacionalidade = ? , nome_social = ? , rg = ? , estado = ?, telefone = ? , est_civil = ? ,nm_pai = ? ,nm_mae = ? ,endereco = ? , email = ? WHERE id = ?";
             $stmt = Model::getConn()->prepare($sql);
             $stmt->bindValue(1,$this->cpf);
             $stmt->bindValue(2,$this->pessoa);
-            $stmt->bindValue(3,$this->requerente);
+            $stmt->bindValue(3,$this->nome);
             $stmt->bindValue(4,$this->sexo);
             $stmt->bindValue(5,$this->profissao);
             $stmt->bindValue(6,$this->dt_nascimento);
@@ -126,6 +126,22 @@
                 return "M.toast({html: 'Falha ao Excluir', classes: 'rounded ,red'});";
             endif;
             
+        }
+
+
+        public function search($search){
+            $sql = "SELECT * FROM requerente WHERE nome LIKE ? COLLATE utf8_general_ci";
+            $stmt = Model::getConn()->prepare($sql);
+            $stmt->bindValue(1,"%{$search}%");
+            $stmt->execute();
+
+            if($stmt->rowCount() > 0):
+                $resultado = $stmt->fetchAll(\PDO::FETCH_ASSOC); 
+                return $resultado;
+
+            else:
+                return[];
+            endif;
         }
 
 

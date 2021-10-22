@@ -38,7 +38,7 @@
 
 
 <div class="input-field col s6">
-    <input id="requerente" type="text" name="requerente" class="validate" required>
+    <input id="nome" type="text" name="nome" class="validate" required>
           <label for="last_name">Requerente</label>      
 </div>
 

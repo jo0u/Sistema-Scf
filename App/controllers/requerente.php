@@ -6,6 +6,7 @@
     class Requerente extends Controller{
 
         public function index($nome = ''){
+            
             $mensagem = array();
 
             Auth::checkLogin();
@@ -22,13 +23,13 @@
 
         public function cadastrar(){
             $mensagem = array();
+          
             Auth::checkLogin();
-            
             
             if(isset($_POST['cadastrar'])):
                 $cpf = addslashes($_POST['cpf']);
                 $pessoa = addslashes($_POST['pessoa']);
-                $requerente = addslashes($_POST['requerente']);
+                $nome = addslashes($_POST['nome']);
                 $sexo = addslashes($_POST['sexo']);
                 $profissao = addslashes($_POST['profissao']);
                 $dt_nascimento = addslashes($_POST['data']);
@@ -47,7 +48,7 @@
 
                 $requerentes->cpf  = $cpf;
                 $requerentes->pessoa  =  $pessoa;
-                $requerentes->requerente  = $requerente;
+                $requerentes->nome  = $nome;
                 $requerentes->sexo  =  $sexo;
                 $requerentes->profissao  =  $profissao;
                 $requerentes->dt_nascimento  =  $dt_nascimento;
@@ -80,7 +81,7 @@
 
                 $cpf = addslashes($_POST['cpf']);
                 $pessoa = addslashes($_POST['pessoa']);
-                $requerente = addslashes($_POST['requerente']);
+                $nome = addslashes($_POST['nome']);
                 $sexo = addslashes($_POST['sexo']);
                 $profissao = addslashes($_POST['profissao']);
                 $dt_nascimento = addslashes($_POST['data']);
@@ -99,7 +100,7 @@
 
                 $requerentes->cpf  = $cpf;
                 $requerentes->pessoa  =  $pessoa;
-                $requerentes->requerente  = $requerente;
+                $requerentes->nome  = $nome;
                 $requerentes->sexo  =  $sexo;
                 $requerentes->profissao  =  $profissao;
                 $requerentes->dt_nascimento  =  $dt_nascimento;
@@ -125,6 +126,7 @@
 
         public function excluir($id = ''){
             Auth::checkLogin();
+            Auth::checkLoginAdmin();
             $mensagem = array();
             $requerentes = $this->model('Requerentes');
             $mensagem[] = $requerentes->delete($id);
@@ -133,6 +135,27 @@
 
             $this->view('requerente/index', $dados = ['registros' => $dados , 'mensagem' => $mensagem]);
         }
+
+
+        public function buscar(){
+      
+            $busca = isset($_POST['buscar']) ? $_POST['buscar'] : $_SESSION['buscar'];
+            $_SESSION['buscar'] = $busca;
+
+            $user = $this->model('Requerentes');
+            $dados= $user->search($busca);
+            
+          
+               $this->view('requerente/index', $dados=['registros' => $dados]);
+          }
+
+          public function ver ($id = ''){
+            $requerentes = $this->model('Requerentes');
+            $dados = $requerentes->findId($id);
+
+
+            $this->view('requerente/ver' , $dados);
+          }
     }
 
 

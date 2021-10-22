@@ -30,7 +30,12 @@
 
 <!-- TO DO  Criar uma logica no input Pessoa para que ele apareça o nome certo não o value-->
 <select name="pessoa" >
-      <option value="<?php echo $data['registros']['pessoa'];?>" ><?php echo $data['registros']['pessoa'];?></option>
+      <option value="<?php echo $data['registros']['pessoa'];?>" ><?php  if($data['registros']['pessoa']):
+             echo "Fisica";
+            else:
+                echo "Jurídica";
+            endif; ?>
+        </option>
       <option value="F">Fisica</option>
       <option value="J">Juridico</option>
     </select>
@@ -41,7 +46,7 @@
 
 <!-- TO DO  Criar uma logica no input sexo para que ele apareça o nome certo não o value-->
 <div class="input-field col s6">
-    <input id="requerente" type="text" name="requerente" class="validate" value="<?php echo $data['registros']['requerente'];?>" required>
+    <input id="nome" type="text" name="nome" class="validate" value="<?php echo $data['registros']['nome'];?>" required>
           <label for="last_name">Requerente</label>      
 </div>
 
@@ -51,7 +56,15 @@
 <div class="input-field col s6">
 
 <select name="sexo">
-      <option value="<?php echo $data['registros']['sexo'];?>" ><?php echo $data['registros']['sexo'];?></option>
+      <option value="<?php echo $data['registros']['sexo'];?>" ><?php  if($data['registros']['sexo']):
+             echo "Feminino";
+            else:
+                echo "Masculino";
+            endif;
+        
+        
+        
+        ?></option>
       <option value="M">Masculino</option>
       <option value="F">Feminino</option>
     </select>

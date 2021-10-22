@@ -17,6 +17,8 @@ use App\Core\Controller;
             
 
             if(isset($_POST['cadastro'])):
+                Auth::checkLogin();
+                Auth::checkLoginAdmin();
                 $nome = addslashes(ucwords(filter_input(INPUT_POST,'nome', FILTER_SANITIZE_SPECIAL_CHARS )));
                 $senha =password_hash($_POST['senha'], PASSWORD_DEFAULT);
                 $usuario =addslashes(strtolower($_POST['usuario']));
@@ -34,6 +36,8 @@ use App\Core\Controller;
         }
 
         public function listar($nome = ''){
+            Auth::checkLogin();
+            Auth::checkLoginAdmin();
           $users = $this->model('Users');
           $dados = $users->getAll();
             
@@ -48,6 +52,8 @@ use App\Core\Controller;
 
         
         public function editar($id){
+            Auth::checkLogin();
+            Auth::checkLoginAdmin();
             $mensagem = array();
             $users = $this->model('Users');
             if(isset($_POST['atualizar'])):
@@ -79,6 +85,8 @@ use App\Core\Controller;
 
 
         public function editarSenha($id){
+            Auth::checkLogin();
+            Auth::checkLoginAdmin();
             $mensagem = array();
             $users = $this->model('Users');
             if(isset($_POST['atualizar'])):
@@ -105,6 +113,8 @@ use App\Core\Controller;
 
 
             public function excluir($id = ''){
+                Auth::checkLogin();
+                Auth::checkLoginAdmin();
                 $mensagem = array();
 
                 $user = $this->model('Users');
@@ -118,6 +128,8 @@ use App\Core\Controller;
             }
 
             public function buscar(){
+                Auth::checkLogin();
+                Auth::checkLoginAdmin();
           
                 $busca = isset($_POST['buscar']) ? $_POST['buscar'] : $_SESSION['buscar'];
                 $_SESSION['buscar'] = $busca;

@@ -1,13 +1,14 @@
-<nav class = 'brown lighten-4'>
+<nav class ='brown lighten-4'>
     <div class="nav-wrapper">
-      <form method="POST" action="#">
+      <form method="POST" action="/requerente/buscar">
         <div class="input-field">
-          <input id="search" name="search" type="search"  required>
+          <input id="search" name='buscar' type="search" placeholder="Faça a busca do usuário aqui">
           <label class="label-icon" for="search"><i class="material-icons">search</i></label>
           <i class="material-icons">close</i>
         </div>
       </form>
     </div>
+  </nav>
   </nav>
 
   <br><br><br>
@@ -38,15 +39,22 @@
 ?>
 
 <?php
-    echo "<tr><th>".$requerente['requerente'];
+    echo "<tr><th>".$requerente['nome'];
    echo "<th>".$requerente['pessoa'];
    echo "<th>".$requerente['cpf'];
    echo "<th>".$requerente['est_civil'];
   
 ?>
+ <th> <a class ='waves-effect waves-light btn modal-trigger  green accent-3' href="/requerente/ver/<?php echo $requerente['id'];?>">Consultar</a>
  <th> <a class ='waves-effect waves-light btn modal-trigger orange' href="/requerente/editar/<?php echo $requerente['id'];?>">Editar</a>
-     
+ 
+    <?php
+         if($_SESSION['level'] >= 2):
+     ?>
      <a class ='waves-effect waves-light btn modal-trigger red' href="/requerente/excluir/<?php echo $requerente['id'];?>">Excluir</a>
+    <?php
+        endif;
+    ?>
     </th>
 
 <?php

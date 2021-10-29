@@ -1,5 +1,5 @@
 <div class ='row container'>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <h2>Cadastrar Requerente</h2>
 
 <?php
@@ -13,7 +13,7 @@
     endif;
 ?>
 
-<form action="/requerente/cadastrar" method="POST">
+<form action="/requerente/cadastrar" method="POST" id="formulario">
 
 
 
@@ -123,16 +123,7 @@
 
     </div>
 
-    <div class="input-field col s6">
-<select name="estCivil" required>
-      <option value="" disabled selected>Est.Civil</option>
-      <option value="Solteiro">Solteiro(a)</option>
-    <option value="Casado">Casado(a)</option>
-    <option value="Divorciado">Divorciado(a)</option>
-    <option value="Uniao Estavel">União Estavél </option>
-    <option value="Viuvo">Viúvo(a)</option>
-</select>
-</div>
+   
     <div class="input-field col s6">
     <input id="nomePai" type="text" name="nomePai" class="validate" required>
           <label for="last_name">Nome do Pai</label>      
@@ -156,12 +147,54 @@
           <label for="last_name">E-mail</label>      
 </div>
 
+
+
+<div class="input-field col s6">
+<select name="estCivil" required>
+      <option value="" disabled selected>Est.Civil</option>
+      <option value="Solteiro">Solteiro(a)</option>
+    <option value="Casado">Casado(a)</option>
+    <option value="Divorciado">Divorciado(a)</option>
+    <option value="União Estavel">União Estavél </option>
+    <option value="Viuvo">Viúvo(a)</option>
+   
+</select>
+</div>
+
+
+<div id="container" style="display: none;">Hello</div>
+<button id="action-btn"> +</button>
+
 <button name="cadastrar" class="waves-effect waves-light btn modal-trigger green" style="float:right"> Cadastrar</button>
 
 
 </form>
+
+<script>
+var button = document.getElementById("action-btn");
+
+console.log(container);
+console.log(button);
+
+button.addEventListener("click",function(){
+
+    if(container.style.display === "none"){
+        container.style.display = "block";
+    }else{
+        container.style.display = "none";
+    }
+
+
+
+
+});
+
+</script>
+
 <script type="text/javascript">
 $("#cpf").mask("000.000.000-00");
 $("#telefone").mask("(00)0 0000-0000");
-
 </script>
+
+
+

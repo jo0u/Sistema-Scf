@@ -26,7 +26,7 @@
           
             Auth::checkLogin();
             
-            if(isset($_POST['cadastrar'])):
+            if(isset($_POST['cadastrar']) AND $_POST['estCivil'] == 'Solteiro'):
                 $cpf = addslashes($_POST['cpf']);
                 $pessoa = addslashes($_POST['pessoa']);
                 $nome = addslashes($_POST['nome']);
@@ -64,6 +64,7 @@
                 $requerentes->email       = $email;
 
                 $mensagem[] =  $requerentes->save();
+
 
             endif;
                 

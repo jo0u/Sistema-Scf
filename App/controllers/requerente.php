@@ -26,7 +26,7 @@
           
             Auth::checkLogin();
             
-            if(isset($_POST['cadastrar']) AND $_POST['estCivil'] == 'Solteiro'):
+            if(isset($_POST['cadastrar'])):
                 $cpf = addslashes($_POST['cpf']);
                 $pessoa = addslashes($_POST['pessoa']);
                 $nome = addslashes($_POST['nome']);
@@ -43,6 +43,11 @@
                 $nm_mae = addslashes($_POST['nomeMae']);
                 $enderco = addslashes($_POST['endereco']);
                 $email = addslashes($_POST['email']);
+                $nomeConjugue = addslashes($_POST['nomeConjugue']);
+                $cpfConjugue = addslashes($_POST['cpfConjugue']);
+                $rgConjugue = addslashes($_POST['rgConjugue']);
+                $estadoConjugue = addslashes($_POST['estadoConjugue']);
+                
 
                 $requerentes = $this->model('Requerentes');
 
@@ -62,6 +67,10 @@
                 $requerentes->nm_mae  =  $nm_mae;
                 $requerentes->endereco  =  $enderco;
                 $requerentes->email       = $email;
+                $requerentes->nomeConjugue       = $nomeConjugue;
+                $requerentes->cpfConjugue       = $cpfConjugue;
+                $requerentes->rgConjugue       = $rgConjugue;
+                $requerentes->estadoConjugue       = $estadoConjugue;
 
                 $mensagem[] =  $requerentes->save();
 

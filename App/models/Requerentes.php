@@ -20,6 +20,10 @@
         public $nm_mae;
         public $endereco;
         public $email;
+        public $nomeConjungue;
+        public $cpfConjugue;
+        public $rgConjugue;
+        public $estadoConjugue;
 
 
         public function getAll(){
@@ -54,7 +58,7 @@
 
         public function save(){
 
-            $sql = "INSERT INTO requerente(cpf, pessoa, nome, sexo, profissao, dt_nascimento, nacionalidade,nome_social,rg,estado,telefone,est_civil,nm_pai,nm_mae,endereco,email) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            $sql = "INSERT INTO requerente(cpf, pessoa, nome, sexo, profissao, dt_nascimento, nacionalidade,nome_social,rg,estado,telefone,est_civil,nm_pai,nm_mae,endereco,email,nomeConjugue,cpfConjugue,rgConjugue,estadoConjugue) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             $stmt = Model::getConn()->prepare($sql);
             $stmt->bindValue(1,$this->cpf);
             $stmt->bindValue(2,$this->pessoa);
@@ -72,6 +76,10 @@
             $stmt->bindValue(14,$this->nm_mae);
             $stmt->bindValue(15,$this->endereco);
             $stmt->bindValue(16,$this->email);
+            $stmt->bindValue(17,$this->nomeConjugue);
+            $stmt->bindValue(18,$this->cpfConjugue);
+            $stmt->bindValue(19,$this->rgConjugue);
+            $stmt->bindValue(20,$this->estadoConjugue);
 
             if($stmt->execute()):
                 return "M.toast({html: 'Cadastrado com sucesso!', classes: 'rounded, green'});";

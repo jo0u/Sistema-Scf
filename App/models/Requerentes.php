@@ -93,7 +93,7 @@
 
         public function update($id){
 
-            $sql = "UPDATE requerente SET cpf = ? , pessoa = ? , nome = ? , sexo = ? , profissao = ? , dt_nascimento = ? , nacionalidade = ? , nome_social = ? , rg = ? , estado = ?, telefone = ? , est_civil = ? ,nm_pai = ? ,nm_mae = ? ,endereco = ? , email = ? WHERE id = ?";
+            $sql = "UPDATE requerente SET cpf = ? , pessoa = ? , nome = ? , sexo = ? , profissao = ? , dt_nascimento = ? , nacionalidade = ? , nome_social = ? , rg = ? , estado = ?, telefone = ? , est_civil = ? ,nm_pai = ? ,nm_mae = ? ,endereco = ? , email = ?, nomeConjugue = ?, cpfConjugue = ?, rgConjugue = ? , estadoConjugue = ? WHERE id = ?";
             $stmt = Model::getConn()->prepare($sql);
             $stmt->bindValue(1,$this->cpf);
             $stmt->bindValue(2,$this->pessoa);
@@ -111,7 +111,11 @@
             $stmt->bindValue(14,$this->nm_mae);
             $stmt->bindValue(15,$this->endereco);
             $stmt->bindValue(16,$this->email);
-            $stmt->bindValue(17,$id);
+            $stmt->bindValue(17,$this->nomeConjugue);
+            $stmt->bindValue(18,$this->cpfConjugue);
+            $stmt->bindValue(19,$this->rgConjugue);
+            $stmt->bindValue(20,$this->estadoConjugue);
+            $stmt->bindValue(21,$id);
 
             if($stmt->execute()):
                 return "M.toast({html: 'Atualizado com sucesso!', classes: 'rounded, green'});";

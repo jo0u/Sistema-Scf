@@ -105,8 +105,17 @@
                 $nm_mae = addslashes($_POST['nomeMae']);
                 $enderco = addslashes($_POST['endereco']);
                 $email = addslashes($_POST['email']);
-
-                $requerentes = $this->model('Requerentes');
+               
+               
+               // Se o input for igual a casado ele recebe essas informações , se não vai retornar vazio
+                if($est_civil == "Casado"):
+                    $nomeConjugue = addslashes($_POST['nomeConjugue']);
+                    $cpfConjugue = addslashes($_POST['cpfConjugue']);
+                    $rgConjugue = addslashes($_POST['rgConjugue']);
+                    $estadoConjugue = addslashes($_POST['estadoConjugue']);
+                endif;
+                
+               
 
                 $requerentes->cpf  = $cpf;
                 $requerentes->pessoa  =  $pessoa;
@@ -124,6 +133,10 @@
                 $requerentes->nm_mae  =  $nm_mae;
                 $requerentes->endereco  =  $enderco;
                 $requerentes->email       = $email;
+                $requerentes->nomeConjugue       = $nomeConjugue;
+                $requerentes->cpfConjugue       = $cpfConjugue;
+                $requerentes->rgConjugue       = $rgConjugue;
+                $requerentes->estadoConjugue       = $estadoConjugue;
 
                 $mensagem[] =  $requerentes->update($id);
 

@@ -56,7 +56,7 @@
 <div class="input-field col s6">
 
 <select name="sexo">
-      <option value="<?php echo $data['registros']['sexo'];?>" ><?php  if($data['registros']['sexo']):
+      <option value="<?php echo $data['registros']['sexo'];?>" ><?php  if($data['registros']['sexo'] == "F"):
              echo "Feminino";
             else:
                 echo "Masculino";
@@ -140,8 +140,8 @@
     </div>
 
     <div class="input-field col s6">
-<select name="estCivil" >
-      <option value="<?php echo $data['registros']['est_civil'];?>"> <?php echo $data['registros']['est_civil'];?></option>
+<select name="estCivil" id="list" onchange="getSelectValue();" >
+      <option value="<?php echo $data['registros']['est_civil'];?>" > <?php echo $data['registros']['est_civil'];?></option>
       <option value="Solteiro">Solteiro(a)</option>
     <option value="Casado">Casado(a)</option>
     <option value="Divorciado">Divorciado(a)</option>
@@ -172,17 +172,142 @@
           <label for="last_name">E-mail</label>      
 </div>
 
+
+
+
+
+<div id="container"  style="display: none;">
+
+
+
+<div class="input-field col s6">
+    <input id="nomeConjugue" type="text" name="nomeConjugue" class="validate" value = "<?php echo $data['registros']['nomeConjugue'];?>" >
+          <label for="last_name">Nome do Cônjugue</label>      
+</div>
+
+<div class="input-field col s6">
+    <input id="cpfConjugue" value = "<?php echo $data['registros']['cpfConjugue'];?>" type="text" name="cpfConjugue" maxlength="15"  class="validate" >
+          <label for="last_name">CPF</label>
+
+</div>
+
+<div class="input-field col s6">
+    <input id="" type="text" value = "<?php echo $data['registros']['rgConjugue'];?>" name="rgConjugue" class="validate" > 
+          <label for="last_name">RG</label>      
+</div>
+
+
+<div class="input-field col s6">
+<select name = "estadoConjugue" >
+      <option value = "<?php echo $data['registros']['estado'];?>"><?php echo $data['registros']['estado'];?></option>
+      <option value="AC">Acre</option>
+    <option value="AL">Alagoas</option>
+    <option value="AP">Amapá</option>
+    <option value="AM">Amazonas</option>
+    <option value="BA">Bahia</option>
+    <option value="CE">Ceará</option>
+    <option value="DF">Distrito Federal</option>
+    <option value="ES">Espirito Santo</option>
+    <option value="GO">Goiás</option>
+    <option value="MA">Maranhão</option>
+    <option value="MS">Mato Grosso do Sul</option>
+    <option value="MT">Mato Grosso</option>
+    <option value="MG">Minas Gerais</option>
+    <option value="PA">Pará</option>
+    <option value="PB">Paraíba</option>
+    <option value="PR">Paraná</option>
+    <option value="PE">Pernambuco</option>
+    <option value="PI">Piauí</option>
+    <option value="RJ">Rio de Janeiro</option>
+    <option value="RN">Rio Grande do Norte</option>
+    <option value="RS">Rio Grande do Sul</option>
+    <option value="RO">Rondônia</option>
+    <option value="RR">Roraima</option>
+    <option value="SC">Santa Catarina</option>
+    <option value="SP">São Paulo</option>
+    <option value="SE">Sergipe</option>
+    <option value="TO">Tocantins</option>
+    </select>
+    </div>
+
+    
+
+
+
+
+
+</div>
+
+
+
+
+
 <button name="atualizar" class="waves-effect waves-light btn modal-trigger green" style="float:right"> Atualizar</button>
 
 
 </form>
-<script type="text/javascript">
-$("#cpf").mask("000.000.000-00");
-$("#telefone").mask("(00)0 0000-0000");
-
-</script>
 
 
+<script>
+
+// biblioteca de mascara em javascript
+// mascara de cpf
+new Cleave('#cpf', {
+blocks: [3, 3, 3, 2],
+delimiters: ['.', '.', '-'],
+numericOnly: true
+});
+
+new Cleave('#cpfConjugue', {
+blocks: [3, 3, 3, 2],
+delimiters: ['.', '.', '-'],
+numericOnly: true
+});
+
+//mascara de telefone
+new Cleave('#telefone', {
+blocks: [0, 2, 5, 4],
+delimiters: ['(',')', '-'],
+numericOnly: true
+});
+//*************************************** */
+
+
+// verificação se já tem o estado civil casado assim que a tela de carrega os dados;
+var setSelectValue = document.getElementById("list").value;
+           if((setSelectValue === "Casado") ){
+            if(container.style.display === "none"){
+        container.style.display = "block";
+            }else{
+                container.style.display = "block";
+            }
+            
+
+           }else{
+               
+               container.style.display = "none";
+           }
+           
+
+// verificação se o usuario alterou o campo de estado civil para casado assim abrirar os novos campos;
+function getSelectValue(){
+    var setSelectValue = document.getElementById("list").value;
+           if((setSelectValue === "Casado") ){
+            if(container.style.display === "none"){
+        container.style.display = "block";
+            }else{
+                container.style.display = "block";
+            }
+            
+
+           }else{
+               
+               container.style.display = "none";
+           }
+           
+        
+    }
+    </script>
 
 
 

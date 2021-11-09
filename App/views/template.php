@@ -62,8 +62,8 @@
 
   
                
-<li><a class="dropdown-trigger" href="" data-target="dropdown1">Cadastro<i class="material-icons right">arrow_drop_down</i></a></li>
-                <ul id="dropdown1" class="dropdown-content">
+<li><a class="dropdown-trigger" href="" data-target="cadastro">Cadastro<i class="material-icons right">arrow_drop_down</i></a></li>
+                <ul id="cadastro" class="dropdown-content">
   <div class = "nav-wrapper container">
   <li><a href="#">Processos</a></li>
   <li class="divider"></li>
@@ -80,7 +80,25 @@
   </ul>
 <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
       
+<li><a class="dropdown-trigger" href="" data-target="tabelas">Tabelas<i class="material-icons right">arrow_drop_down</i></a></li>
+                <ul id="tabelas" class="dropdown-content">
+  <div class = "nav-wrapper container">
+  <li><a href="#">Projetos</a></li>
+  <li class="divider"></li>
+  <li><a href="/comunidade/painel">Comunidade</a></li>
+  <li class="divider"></li>
+  <li><a href="#">Múnicipio</a></li>
+  <li class="divider"></li>
+  <li><a href="#">Procurador</a></li>
+  <li class="divider"></li>
+  <li><a href="#">Pendências </a></li>
+  <li class="divider"></li>
+  <li><a href="#">Executor</a></li>
+  <li class="divider"></li>
+  <li><a href="#">Funcionários</a></li>
+  <li class="divider"></li>
 
+  </ul>
 
 
 

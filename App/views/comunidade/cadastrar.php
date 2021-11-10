@@ -14,8 +14,20 @@
     endif;
 ?>
 
-<form action="/requerente/cadastrar" method="POST" id="formulario">
+<form action="/comunidade/cadastrar" method="POST" id="formulario">
 
+<div class="input-field col s6">
+
+<select name="municipios" >
+      <option value="" disabled selected>Municipio</option>
+        
+    
+
+
+    </select>
+
+
+</div>
 
 
 
@@ -32,22 +44,24 @@
 </div>
 
 <div class="input-field col s6">
-    <input id="" type="text" name="" class="validate" required>
+    <input id="destrito" type="text" name="destrito" class="validate" required>
           <label for="last_name">Distrito Sede</label>
 
 </div>
 
 <div class="input-field col s6">
-    <input id="" type="text" name="" class="validate" required>
+    <input id="responsavel" type="text" name="responsavel" class="validate" required>
           <label for="last_name">Responsável</label>
 
 </div>
 
 <div class="input-field col s6">
-    <input id="" type="text" name="" class="validate" required>
+    <input id="responsavelCda" type="text" name="responsavelCda" class="validate" required>
           <label for="last_name">Responsável da CDA</label>
 
 </div>
+<button name="cadastrar" class="waves-effect waves-light btn modal-trigger green" style="float:right"> Cadastrar</button>
 
 
 </div>
+</form>
